@@ -159,7 +159,7 @@ module Flapjack
             raise "Array arguments may only contain data Hashes" unless arg.all? {|a| a.is_a?(Hash)}
             data += arg
           when Hash
-            params.update(arg)
+            params.update(symbolize(arg))
           when String, Integer
             ids << arg.to_s
           else
